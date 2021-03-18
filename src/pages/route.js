@@ -1,5 +1,7 @@
-import Main from './Main'
+import Main from '../pages/Main'
+
 const route = [
-    {path : "/", component: Main}
+    { path : "/" , component: Main}
 ]
+
 export default route

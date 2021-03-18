@@ -1,7 +1,6 @@
-import React from "react";
-import { Route, BrowserRouter as Router, Switch} from "react-router-dom";
+import React from "react"
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import './App.css';
 import route from "./pages/route";
 
 function App() {
@@ -9,11 +8,10 @@ function App() {
     <Router>
       <Switch>
         {
-          route.map((route, idNumbre) =>(
-              <Route exact path={route.path} component={route.component} key={idNumbre}/>
+          route.map((route,idN) =>(
+              <Route exact path={route.path} component={route.component} key={idN}/>
           ))
         }
-        {/*Buraya-404-sayfası-geliyor-normalde:)*/}
       </Switch>
     </Router>
   );
