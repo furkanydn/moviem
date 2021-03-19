@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Helmet} from 'react-helmet';
-import {Ust, Populer} from '../components/index'
+import {Ust, Populer, TopCard} from '../components/index'
 
 class Main extends Component {
     state={}
@@ -13,6 +13,7 @@ class Main extends Component {
                 </Helmet>
                 <Ust/>
                 <Populer/>
+                <TopCard/>
             </div>
         )
     }
