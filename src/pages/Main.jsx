@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Helmet} from 'react-helmet';
-import {Ust} from '../components/index'
+import {Ust, Populer} from '../components/index'
 
 class Main extends Component {
     state={}
@@ -12,7 +12,7 @@ class Main extends Component {
                     <title>Moviem</title>
                 </Helmet>
                 <Ust/>
-                <span>Buraya yazı geliyor</span>
+                <Populer/>
             </div>
         )
     }

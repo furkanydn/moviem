@@ -1,0 +1,20 @@
+@import "variable";
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.panelItemBack {
+  border:1px solid $border-color;
+  border-radius: 25px !important;
+}
+.active {
+  background: $panel-color;
+  border-radius: 25px !important;
+}
+.headerItem {
+  padding-top: 15px !important;
+}
