@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import axios from "axios";
 import Carousel from "react-multi-carousel"
+import Lazyload from 'react-lazyload'
 import "react-multi-carousel/lib/styles.css"
 import { Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
 import "../styles/style.scss"
-import Style from "../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/1?page=1'
 const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
@@ -84,6 +84,7 @@ export default class TopCard extends Component{
             <Grid padded>
                 <Grid.Row centered>
                     <Grid.Column width={12}>
+                        <Lazyload>
                         <Carousel
                             additionalTransfrom={0}
                             centerMode={false}
@@ -122,7 +123,9 @@ export default class TopCard extends Component{
                                             value={clickedQuery}>
                                         </Dropdown>
 
-                                        <Card>
+                                        <Card
+                                            href={MOVIE + data.id}
+                                        >
                                             <Card.Content>
                                                 <Card.Header>{data.baslik}</Card.Header>
                                                 <Card.Meta>{data.cikis}</Card.Meta>
@@ -132,6 +135,7 @@ export default class TopCard extends Component{
                                 ))
                             }
                         </Carousel>
+                        </Lazyload>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
