@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Header, Tab} from 'semantic-ui-react'
 import {SecondPane, TopCard, ThreePane, FourPane} from './index'
 
@@ -35,8 +35,21 @@ const panel = [
     },
 ]
 
-const TabPanel = () => (
-      <Tab menu={{secondary: true}} panes={panel} />
-)
+export default class TabPanel extends Component {
+    state = { activeIndex: 1 }
 
-export default TabPanel
+    handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
+
+    render() {
+        const { activeIndex } = this.state
+
+        return (
+            <Tab
+                menu={{secondary: true}}
+                panes={panel}
+                activeIndex={activeIndex}
+                onTabChange={this.handleTabChange}
+                defaultActiveIndex={1}/>
+        )
+    }
+}
