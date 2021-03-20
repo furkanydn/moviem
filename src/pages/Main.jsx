@@ -5,7 +5,6 @@ import {Grid} from "semantic-ui-react";
 
 
 class Main extends Component {
-    state={}
     render() {
         return (
             <div>
@@ -16,7 +15,7 @@ class Main extends Component {
                 <Ust/>
                 <Grid padded>
                     <Grid.Row>
-                        <Grid.Column width='equal'>
+                        <Grid.Column>
                             <TabPanel/>
                         </Grid.Column>
                     </Grid.Row>

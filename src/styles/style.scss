@@ -11,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-panelItem {
+.panelItem {
   color: $panel-color;
 }
 
@@ -38,6 +38,20 @@ panelItem {
     }
   }
 }
+.ui.secondary.menu {
+  .link.item:active,.link.item:focus
+  , a.item:active, a.item:focus{
+    border-radius: 25px !important;
+    background-position-x: 0;
+    background-position-y: 0;
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(192, 254, 207) 0%, rgb(30, 213, 169) 100%) repeat scroll;
+    background-size: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+  }
+}
+
+
 .ideaIconT {
   top: 20px;
   right: 16px;
@@ -46,7 +60,7 @@ panelItem {
 .circle {
   position: absolute;
   top: 10rem;
-  left: 0em;
+  left: 0;
 }
 .circleItem {
   position: absolute;
@@ -62,4 +76,21 @@ panelItem {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
+}
+.tabBut {
+  border-radius: 18px !important;
+  background-color: transparent !important;
+  color: $tmdbDarkBlue;
+  z-index: 1;
+}
+.tabButActive {
+  border-radius: 18px !important;
+  background-color: $backgroundColor !important;
+  z-index: 1;
+}
+.spanned {
+  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

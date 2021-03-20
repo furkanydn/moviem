@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Header, Tab} from 'semantic-ui-react'
+import {Button, Header, Segment, Tab} from 'semantic-ui-react'
 import { FreePaneOne, FreePaneTwo} from './index'
 
 const panel = [
@@ -10,13 +10,27 @@ const panel = [
             </div>
     },
     {
-        menuItem: 'Filmler',
+        menuItem: (
+            <Segment basic size='mini'>
+                <Button
+                    className='tabButActive'>
+                    <span className='spanned'>Filmler</span>
+                </Button>
+            </Segment>
+        ),
         render: () => <Tab.Pane attached={false}>
             <FreePaneOne/>
         </Tab.Pane>
     },
     {
-        menuItem: 'TV',
+        menuItem: (
+            <Segment basic size='mini'>
+                <Button
+                    className='tabBut'>
+                    <span className='tabBut'>TV</span>
+                </Button>
+            </Segment>
+        ),
         render: () => <Tab.Pane attached={false}>
             <FreePaneTwo/>
         </Tab.Pane>
@@ -24,7 +38,6 @@ const panel = [
 ]
 
 class AltTabPanel extends Component {
-    state = { }
 
     handleTab = (e, { activeItemIndex }) => this.setState({ activeItemIndex })
 
