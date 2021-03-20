@@ -4,8 +4,8 @@ import Carousel from "react-multi-carousel"
 import Lazyload from 'react-lazyload'
 import Circle from 'react-circle'
 import "react-multi-carousel/lib/styles.css"
-import {Card, Dropdown, Grid, Icon, Image, Label, Segment} from "semantic-ui-react";
-import "../styles/style.scss"
+import {Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
+import "../../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/1?page=1'
 const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
@@ -52,7 +52,6 @@ export default class TopCard extends Component{
     }
 
     handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
-
 
     constructor(props) {
         super(props);

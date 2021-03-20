@@ -57,3 +57,9 @@ panelItem {
   border-radius: 15px;
   background-color: $background-grey;
 }
+.tabHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}

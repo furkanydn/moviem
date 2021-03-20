@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Helmet} from 'react-helmet';
-import {Ust, Populer, TopCard, TabPanel} from '../components/index'
+import {Ust, TabPanel} from '../components/index'
 import {Grid} from "semantic-ui-react";
 
 
@@ -14,15 +14,13 @@ class Main extends Component {
                     <title>Moviem</title>
                 </Helmet>
                 <Ust/>
-                <Populer/>
-                <Grid>
+                <Grid padded>
                     <Grid.Row>
-                        <Grid.Column>
+                        <Grid.Column width='equal'>
                             <TabPanel/>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-
             </div>
         )
     }
