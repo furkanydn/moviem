@@ -11,10 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.panelItem {
-  color: $panel-color;
-}
-
 .panelItemBack {
   border:1px solid $border-color;
   border-radius: 10px !important;
@@ -86,6 +82,12 @@ body {
 .tabButActive {
   border-radius: 18px !important;
   background-color: $backgroundColor !important;
+  z-index: 1;
+}
+.tabButAct {
+  border-radius: 18px !important;
+  background-color: $backgroundColor !important;
+  margin-left: 15px;
   z-index: 1;
 }
 .spanned {

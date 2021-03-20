@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Header, Tab} from 'semantic-ui-react'
+import {Button, Header, Segment, Tab} from 'semantic-ui-react'
 import {SecondPane, TopCard, ThreePane, FourPane} from './index'
 
 const panel = [
@@ -10,7 +10,15 @@ const panel = [
             </div>
     },
     {
-        menuItem: 'Yayın Akışı',
+        menuItem: (
+            //Semantic ui indexleme hatası, burada string yerine component kullanınca geri döneceği indexi bulamıyor.
+            <Segment basic size='mini'>
+                <Button
+                    className='tabButAct'>
+                    <span className='spanned'>Yayın Akışı</span>
+                </Button>
+            </Segment>
+        ),
         render: () => <Tab.Pane attached={false}>
             <TopCard/>
         </Tab.Pane>
