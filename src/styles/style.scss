@@ -43,9 +43,17 @@ panelItem {
   right: 16px;
   z-index: 1 !important;
 }
-.portal {
-  left: 40%;
-  position: fixed;
-  top: 50%;
-  zIndex: 1000;
+.circle {
+  position: absolute;
+  top: 10rem;
+  left: 0em;
+}
+.circleItem {
+  position: absolute;
+  top: 20px;
+  width: 35px;
+  height: 35px;
+  left: 20px;
+  border-radius: 15px;
+  background-color: $background-grey;
 }

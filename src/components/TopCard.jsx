@@ -2,8 +2,9 @@ import React, {Component} from 'react'
 import axios from "axios";
 import Carousel from "react-multi-carousel"
 import Lazyload from 'react-lazyload'
+import Circle from 'react-circle'
 import "react-multi-carousel/lib/styles.css"
-import { Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
+import {Card, Dropdown, Grid, Icon, Image, Label, Segment} from "semantic-ui-react";
 import "../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/1?page=1'
@@ -113,6 +114,24 @@ export default class TopCard extends Component{
                                                 corner: 'right',
                                                 icon: 'idea'}}
                                         />
+                                        <div className='circle'>
+                                            <div className='circleItem'>
+                                                <Circle
+                                                    animate={true}
+                                                    animationDuration="1s"
+                                                    responsive={true}
+                                                    size="1"
+                                                    lineWidth="20"
+                                                    progressColor="rgb(30,213,169)"
+                                                    progress={data.oyOrt * 10}
+                                                    textStyle={{
+                                                        font: 'bold 8rem sans-serif'
+                                                    }}
+                                                    textColor="#fff"
+                                                />
+                                            </div>
+                                        </div>
+
                                         <Dropdown
                                             onChange={this.handleChange}
                                             className='ideaIconT'
@@ -131,6 +150,9 @@ export default class TopCard extends Component{
                                                 <Card.Meta>{data.cikis}</Card.Meta>
                                             </Card.Content>
                                         </Card>
+
+
+
                                     </Segment>
                                 ))
                             }
