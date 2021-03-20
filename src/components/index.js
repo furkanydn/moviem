@@ -1,11 +1,12 @@
 import Ust from "./Ust";
-import Populer from "./Populer";
-import TopCard from "./panes/TopCard";
+import TopCard from "./panePopuler/TopCard";
 import TabPanel from "./Tab";
-import SecondPane from "./panes/SecondPane";
-import ThreePane from "./panes/ThreePane";
-import FourPane from "./panes/FourPane";
+import AltTabPanel from "./AltTab";
+import SecondPane from "./panePopuler/SecondPane";
+import ThreePane from "./panePopuler/ThreePane";
+import FourPane from "./panePopuler/FourPane";
+import FreePaneOne from "./paneFree/FreePaneOne";
 
-export {Ust, Populer, TopCard, TabPanel, SecondPane, ThreePane, FourPane}
+export {Ust, TopCard, TabPanel, SecondPane, ThreePane, FourPane, FreePaneOne, AltTabPanel}
 
 // Bütün-componentleri-buraya-import-edip-tek-dosyadan-export-ediyorum.

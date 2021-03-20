@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {Helmet} from 'react-helmet';
-import {Ust, TabPanel} from '../components/index'
+import {Ust, TabPanel, AltTabPanel} from '../components/index'
 import {Grid} from "semantic-ui-react";
 
 
@@ -18,6 +18,11 @@ class Main extends Component {
                     <Grid.Row>
                         <Grid.Column width='equal'>
                             <TabPanel/>
+                        </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Row>
+                        <Grid.Column>
+                            <AltTabPanel/>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
