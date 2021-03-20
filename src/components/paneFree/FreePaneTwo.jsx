@@ -7,7 +7,7 @@ import "react-multi-carousel/lib/styles.css"
 import {Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
 
-const API = 'https://api.themoviedb.org/4/list/7082660?page=1'
+const API = 'https://api.themoviedb.org/4/list/7082656?page=1'
 const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
 const MOVIE = 'https://www.themoviedb.org/movie/'
 const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
@@ -46,7 +46,7 @@ const options= [
     }
 ]
 
-class FreePaneOne extends Component{
+export default class FreePaneTwo extends Component{
     state = {
         filmFree: []
     }
@@ -60,10 +60,10 @@ class FreePaneOne extends Component{
             .then(sonuc => {
                 const filmFree = sonuc.data.results.map(
                     obje => ({
-                        baslik: obje.title,
+                        baslik: obje.original_name,
                         ozet: obje.overview,
                         oyOrt: obje.vote_average,
-                        cikis: obje.release_date,
+                        cikis: obje.first_air_date,
                         resim: obje.poster_path,
                         no: obje.id
                     })
@@ -160,5 +160,3 @@ class FreePaneOne extends Component{
         )
     }
 }
-
-export default FreePaneOne
