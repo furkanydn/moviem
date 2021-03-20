@@ -41,14 +41,11 @@ export default class TabPanel extends Component {
     handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
 
     render() {
-        const { activeIndex } = this.state
 
         return (
             <Tab
                 menu={{secondary: true}}
                 panes={panel}
-                activeIndex={activeIndex}
-                onTabChange={this.handleTabChange}
                 defaultActiveIndex={1}/>
         )
     }

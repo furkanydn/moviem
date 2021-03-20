@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {Header, Tab} from 'semantic-ui-react'
-import {FreePaneOne} from './index'
+import { FreePaneOne, FreePaneTwo} from './index'
 
 const panel = [
     {
@@ -10,21 +10,33 @@ const panel = [
             </div>
     },
     {
-        menuItem: 'Yayın Akışı',
+        menuItem: 'Filmler',
         render: () => <Tab.Pane attached={false}>
             <FreePaneOne/>
         </Tab.Pane>
     },
     {
-        menuItem: 'Televizyonda',
+        menuItem: 'TV',
         render: () => <Tab.Pane attached={false}>
-            <FreePaneOne/>
+            <FreePaneTwo/>
         </Tab.Pane>
     }
 ]
 
-const AltTabPanel = () => (
-    <Tab menu={{secondary: true}} panes={panel} />
-)
+class AltTabPanel extends Component {
+    state = { }
+
+    handleTab = (e, { activeItemIndex }) => this.setState({ activeItemIndex })
+
+    render() {
+
+        return (
+            <Tab
+                menu={{secondary: true}}
+                panes={panel}
+                defaultActiveIndex={1}/>
+        )
+    }
+}
 
 export default AltTabPanel
