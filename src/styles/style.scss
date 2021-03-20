@@ -1,20 +1,51 @@
 @import "variable";
 
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+panelItem {
+  color: $panel-color;
+}
 
 .panelItemBack {
   border:1px solid $border-color;
-  border-radius: 25px !important;
-}
-.active {
-  background: $panel-color;
-  border-radius: 25px !important;
+  border-radius: 10px !important;
 }
 .headerItem {
   padding-top: 15px !important;
+}
+.dot {
+  border-color: transparent !important;
+}
+.dot:hover {
+  border-color: transparent !important;
+}
+.ui.dropdown {
+  position: absolute;
+  .menu {
+    right: 2px !important;
+    left: auto !important;
+    .selected.item {
+      color: $border-color;
+    }
+  }
+}
+.ideaIconT {
+  top: 20px;
+  right: 16px;
+  z-index: 1 !important;
+}
+.portal {
+  left: 40%;
+  position: fixed;
+  top: 50%;
+  zIndex: 1000;
 }
