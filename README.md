@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Moviem
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[https://www.themoviedb.org](https://www.themoviedb.org/) üzerinden [API](https://developers.themoviedb.org/4/getting-started) 'leri kullanılarak [AXIOS](https://github.com/axios/axios) ile istekleri yaparak filmleri getiren basit bir web uygulamasıdır.
 
-## Available Scripts
+[Semantic UI](https://semantic-ui.com/) ve bazı [React Hook](https://reactjs.org/docs/getting-started.html) yapıları kullanarak geliştirilmiştir. Bu proje [React](https://github.com/facebook/create-react-app) kullanılarak önyüklenmiştir.
 
-In the project directory, you can run:
+## Kullanılabilen Komutlar
 
-### `yarn start`
+Projeyi kullanabilmek için [Node](https://nodejs.org/) yüklü olmalıdır.
+```git
+git clone https://github.com/furkanydn/moviem.git
+```
+```git
+docker pull wasteinsy/moviem:movie
+```
+Bu bağlantıları kullanarak projeyi indirebilirsiniz.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`yarn start` veya `npm start` komutları ile projeyi ayağa kaldırın.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Proje ayağa kalkınca [http://localhost:3000](http://localhost:3000) bu link üzerinden projeyi görüntüleyebilirsiniz 
+veya docker sizin için bunları yapabilir.
 
-### `yarn test`
+## Sorunlar
+-[react-circle](https://www.npmjs.com/package/react-circle) paketinin bağımlılıkları react'ın 16.2.0 versiyonu üzerinden eşleştirildiği için hata alırsanız eş bağımlılıklarını kendiniz yüklemelisiniz.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-[Semantic UI](https://semantic-ui.com/) kullanıldığı için bazı isimlendirmeleri ezdiği için herhangi bir hatada [bu linkten](https://github.com/Semantic-Org/Semantic-UI/issues) açık olan hatalardan araştırabilirsiniz.
 
-### `yarn build`
+## Eksiklikler
+-[Semantic UI Menu](https://reactjs.org/link/warning-keys) menüsü kullanıldığı için react'ın standartlarına uymadığından dolayı hata alabilirsiniz, yakın zamanda düzeltilebilir.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-[Semantic UI](https://semantic-ui.com/) fluid özelliği resime atandığı zaman size özelliği ile birlikte kullanıldığında hata veriyor, ileriki bir tarihte düzenlenebilir.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-[React State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) 
+Henüz bağlanmamış bir bileşende setState metodu kullandığım için bu işlem yapılmaz uyarısı verebilir, uygulamada bir hata olduğunu gösterebilir. Bunun yerine, doğrudan "this.state" metodu olarak kullanılabilir veya Sınıf bileşeninde istenen duruma sahip bir "state = {}" özelliği tanımlanabilir. İleride bir düzenleme getirilebilir.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Projede kullanılan teknolojiler
 
-### `yarn eject`
+* [JavaScript](https://www.javascript.com/)
+* [ES6 :)](https://www.ecma-international.org/technical-committees/tc39/)
+* [Axios](https://github.com/axios/axios)
+* [Docker](https://www.docker.com/)
+* [API'ler](https://developers.themoviedb.org/4/getting-started)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Docker konusunda fikirlerinden dolayı [Fırat KAYA](https://kayafirat.com/)'ya teşekkür ederim :)
