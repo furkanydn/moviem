@@ -5,7 +5,7 @@ import Carousel from "react-multi-carousel"
 import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import "react-multi-carousel/lib/styles.css"
-import {Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
+import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/7082660?page=1'
@@ -47,9 +47,16 @@ const options= [
     }
 ]
 
+const ChangeColor = () => {
+    // eslint-disable-next-line no-unused-vars
+    const [progressColor, setProgressColor] = React.useState();
+
+    return progressColor
+}
+
 class FreePaneOne extends Component{
     state = {
-        filmFree: []
+        filmFree: [],
     }
 
     handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
@@ -106,18 +113,6 @@ class FreePaneOne extends Component{
                                                 src={IMAGE_URL + data.resim}
                                                 scrollPosition={{ x: 0, y: 0 }}
                                             />
-                                            <Image
-                                                fluid
-                                                rounded
-                                                className='panelItemBack'
-                                                src={IMAGE_URL + data.resim}
-                                                data-thumb={IMAGE_URL + data.resim}
-                                                size='medium'
-                                                label={{
-                                                    className: 'dot',
-                                                    corner: 'right',
-                                                    icon: 'idea'}}
-                                            />
                                             <div className='circle'>
                                                 <div className='circleItem'>
                                                     <Circle
@@ -126,7 +121,7 @@ class FreePaneOne extends Component{
                                                         responsive={true}
                                                         size="1"
                                                         lineWidth="20"
-                                                        progressColor="rgb(30,213,169)"
+                                                        progressColor={ChangeColor}
                                                         progress={data.oyOrt * 10}
                                                         textStyle={{
                                                             font: 'bold 8rem sans-serif'

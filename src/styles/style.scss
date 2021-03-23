@@ -65,7 +65,7 @@ body {
   height: 35px;
   left: 20px;
   border-radius: 15px;
-  background-color: $background-grey;
+  background-color: $tmdbDarkBlue;
 }
 .tabHeader {
   display: flex;
@@ -95,4 +95,10 @@ body {
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.sevenUp {
+  background-color: $sevenUp;
+}
+.sevenDown {
+  background-color: $sevenDown;
 }

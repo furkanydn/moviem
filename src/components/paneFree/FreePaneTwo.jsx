@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import axios from "axios";
 import Carousel from "react-multi-carousel"
-import LazyLoadComponent from 'react-lazy-load-image-component'
+import LazyLoadComponent, {LazyLoadImage} from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import "react-multi-carousel/lib/styles.css"
-import {Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
+import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/7082656?page=1'
@@ -101,17 +101,10 @@ export default class FreePaneTwo extends Component{
                                 {
                                     this.state.filmFree.map(data =>(
                                         <Segment basic size='mini'>
-                                            <Image
-                                                fluid
-                                                rounded
-                                                className='panelItemBack'
+                                            <LazyLoadImage
+                                                alt={data.title}
                                                 src={IMAGE_URL + data.resim}
-                                                data-thumb={IMAGE_URL + data.resim}
-                                                size='medium'
-                                                label={{
-                                                    className: 'dot',
-                                                    corner: 'right',
-                                                    icon: 'idea'}}
+                                                scrollPosition={{ x: 0, y: 0 }}
                                             />
                                             <div className='circle'>
                                                 <div className='circleItem'>
@@ -121,7 +114,7 @@ export default class FreePaneTwo extends Component{
                                                         responsive={true}
                                                         size="1"
                                                         lineWidth="20"
-                                                        progressColor="rgb(30,213,169)"
+                                                        progressColor= {progColor}
                                                         progress={data.oyOrt * 10}
                                                         textStyle={{
                                                             font: 'bold 8rem sans-serif'

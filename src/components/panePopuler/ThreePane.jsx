@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import axios from "axios";
 import Carousel from "react-multi-carousel"
-import LazyLoadComponent from 'react-lazy-load-image-component'
+import LazyLoadComponent, {LazyLoadImage} from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import "react-multi-carousel/lib/styles.css"
-import {Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
+import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/1?page=3'
@@ -101,17 +101,10 @@ export default class ThreePane extends Component{
                                 {
                                     this.state.filmPopuler.map(data =>(
                                         <Segment basic size='mini'>
-                                            <Image
-                                                fluid
-                                                rounded
-                                                className='panelItemBack'
+                                            <LazyLoadImage
+                                                alt={data.title}
                                                 src={IMAGE_URL + data.resim}
-                                                data-thumb={IMAGE_URL + data.resim}
-                                                size='medium'
-                                                label={{
-                                                    className: 'dot',
-                                                    corner: 'right',
-                                                    icon: 'idea'}}
+                                                scrollPosition={{ x: 0, y: 0 }}
                                             />
                                             <div className='circle'>
                                                 <div className='circleItem'>
