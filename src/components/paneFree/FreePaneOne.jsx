@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import axios from "axios";
 import Carousel from "react-multi-carousel"
-import Lazyload from 'react-lazyload'
+// eslint-disable-next-line no-unused-vars
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import "react-multi-carousel/lib/styles.css"
 import {Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
@@ -84,7 +85,6 @@ class FreePaneOne extends Component{
             <Grid padded>
                 <Grid.Row centered>
                     <Grid.Column width={12}>
-                        <Lazyload>
                             <Carousel
                                 additionalTransfrom={0}
                                 centerMode={false}
@@ -101,6 +101,11 @@ class FreePaneOne extends Component{
                                 {
                                     this.state.filmFree.map(data =>(
                                         <Segment basic size='mini'>
+                                            <LazyLoadImage
+                                                alt={data.title}
+                                                src={IMAGE_URL + data.resim}
+                                                scrollPosition={{ x: 0, y: 0 }}
+                                            />
                                             <Image
                                                 fluid
                                                 rounded
@@ -153,7 +158,6 @@ class FreePaneOne extends Component{
                                     ))
                                 }
                             </Carousel>
-                        </Lazyload>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

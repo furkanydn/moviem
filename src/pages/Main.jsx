@@ -7,7 +7,7 @@ import {Grid} from "semantic-ui-react";
 class Main extends Component {
     render() {
         return (
-            <div>
+            <Grid>
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title>Moviem</title>
@@ -25,7 +25,7 @@ class Main extends Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
-            </div>
+            </Grid>
         )
     }
 }

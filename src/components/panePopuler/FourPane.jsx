@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from "axios";
 import Carousel from "react-multi-carousel"
-import Lazyload from 'react-lazyload'
+import LazyLoadComponent from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import "react-multi-carousel/lib/styles.css"
 import {Card, Dropdown, Grid, Icon, Image, Segment} from "semantic-ui-react";
@@ -85,7 +85,7 @@ export default class FourPane extends Component{
             <Grid padded>
                 <Grid.Row centered>
                     <Grid.Column width={12}>
-                        <Lazyload>
+                        <LazyLoadComponent>
                             <Carousel
                                 additionalTransfrom={0}
                                 centerMode={false}
@@ -154,7 +154,7 @@ export default class FourPane extends Component{
                                     ))
                                 }
                             </Carousel>
-                        </Lazyload>
+                        </LazyLoadComponent>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

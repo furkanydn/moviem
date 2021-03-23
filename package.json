@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@testing-library/dom": "^7.30.0",
     "axios": "^0.21.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
@@ -17,7 +18,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "web-vitals": "^1.0.1",
-    "react-lazyload": "^3.2.0",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-circle": "^1.1.1"
   },
   "scripts": {
