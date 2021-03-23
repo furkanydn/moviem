@@ -21,7 +21,7 @@ Proje ayağa kalkınca [http://localhost:3000](http://localhost:3000) bu link ü
 veya docker sizin için bunları yapabilir.
 
 ## Sorunlar
--[react-circle](https://www.npmjs.com/package/react-circle) paketinin bağımlılıkları react'ın 16.2.0 versiyonu üzerinden eşleştirildiği için hata alınıyor bunu ileriki bir zamanda düzelteceğim ve kova kullanmayı düşünüyorum.
+-[react-circle](https://www.npmjs.com/package/react-circle) paketinin bağımlılıkları react'ın 16.2.0 versiyonu üzerinden eşleştirildiği için hata alınıyor bunu ileriki bir zamanda düzelteceğim ve [konvajs](https://github.com/konvajs/react-konva) kullanmayı düşünüyorum.
 
 -[Semantic UI](https://semantic-ui.com/) kullanıldığı için bazı isimlendirmeleri ezdiği için herhangi bir hatada [bu linkten](https://github.com/Semantic-Org/Semantic-UI/issues) açık olan hatalardan araştırabilirsiniz.
 
