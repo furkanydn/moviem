@@ -5,6 +5,7 @@ import LazyLoadImage, {trackWindowScroll} from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
+import Style from "../../styles/_variable.scss"
 
 const API = 'https://api.themoviedb.org/4/list/1?page=1'
 const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
@@ -29,7 +30,7 @@ const options= [
 
 class TopCard extends Component{
     state = {
-        filmPopuler: []
+        filmPopuler: [],
     }
 
     handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
@@ -37,7 +38,7 @@ class TopCard extends Component{
     componentDidMount(){
         axios.get(API + API_KEY)
             .then(res => {
-                const films = res.data
+                const films = res.data.results
                 this.setState({
                     filmPopuler : films
                 })
@@ -45,13 +46,6 @@ class TopCard extends Component{
             .catch(function (error) {
                 console.log(error);
             })
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            filmPopuler: []
-        }
     }
 
     render() {
