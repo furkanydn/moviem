@@ -11,7 +11,7 @@ Projeyi kullanabilmek için [Node](https://nodejs.org/) yüklü olmalıdır.
 git clone https://github.com/furkanydn/moviem.git
 ```
 ```git
-docker pull wasteinsy/moviem:movie
+docker pull wasteinsy/moviem:movie (Yeni yapılan değişiklikler eklenemedi.)
 ```
 Bu bağlantıları kullanarak projeyi indirebilirsiniz.
 
