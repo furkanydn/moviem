@@ -29,6 +29,8 @@ veya docker sizin için bunları yapabilir.
 
 -[Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) Resimler lazyload olarak getiriliyor ancak container hatasından dolayı içerideki componentlerin hiçbiri yüklenmiyor.
 
+-[Scroller-Wrap](https://github.com/bespoyasov/scroller) Yeni yapıda kullanılması planlanan pakettir.
+
 ## Eksiklikler
 -[Semantic UI Card](https://semantic-ui.com/views/card.html) Kart kullanımında doğru yerleşim planı yapılmadığı için konteynırlar eşli olarak çalışıyor.
 
