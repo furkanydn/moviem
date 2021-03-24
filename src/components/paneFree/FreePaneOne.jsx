@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
 import axios from "axios";
-import Carousel from "react-multi-carousel"
 // eslint-disable-next-line no-unused-vars
 import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
-import "react-multi-carousel/lib/styles.css"
 import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
 
@@ -13,24 +11,6 @@ const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
 const MOVIE = 'https://www.themoviedb.org/movie/'
 const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
 
-const responsive = {
-    superLargeDesktop: {
-        breakpoint: { max: 4000, min: 3000 },
-        items: 10,
-    },
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 8,
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 6,
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 2,
-    },
-};
 const trigger = (
     <Icon name='idea'/>
 )
@@ -92,19 +72,6 @@ class FreePaneOne extends Component{
             <Grid padded>
                 <Grid.Row centered>
                     <Grid.Column width={12}>
-                            <Carousel
-                                additionalTransfrom={0}
-                                centerMode={false}
-                                containerClass="container"
-                                dotListClass=""
-                                focusOnSelect={true}
-                                infinite={false}
-                                keyBoardControl
-                                minimumTouchDrag={100}
-                                showDots={false}
-                                swipeable={true}
-                                draggable={true}
-                                responsive={responsive}>
                                 {
                                     this.state.filmFree.map(data =>(
                                         <Segment basic size='mini'>
@@ -152,7 +119,6 @@ class FreePaneOne extends Component{
                                         </Segment>
                                     ))
                                 }
-                            </Carousel>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

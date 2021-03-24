@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from "axios";
 // eslint-disable-next-line no-unused-vars
-import LazyLoadImage, {trackWindowScroll} from 'react-lazy-load-image-component'
+import LazyLoadImage from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
@@ -26,23 +26,28 @@ const options= [
         value: 2
     }
 ]
-//Bunları api üzerinde toplanıldığını ögrendim.
-// eslint-disable-next-line no-unused-vars
-const sendGetListRequest = async () => {
-    try {
-        const response = await axios.get(API + API_KEY)
-        console.log(response.data)
-    } catch (error){
-        console.error(error)
-    }
-}
 
 class TopCard extends Component{
-    state = {
-        filmPopuler: [],
+    state: { filmPopuler: [], loading: boolean };
+
+    componentDidMount() {
+        this.setState({loading: true})
+        console.log("mounted")
+        try {
+            const response = axios.get(API + API_KEY).then(
+                response => {
+                    this.setState({filmPopuler : response.data.results, loading:false}, ()=>
+                    console.log(response.data.results))
+                }
+            )
+            console.log(response.data)
+        } catch (error){
+            console.error(error)
+        }
     }
 
     handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
+
 
     render() {
         const { scrollPosition } = this.props;
@@ -50,56 +55,56 @@ class TopCard extends Component{
         return (
             <Grid padded>
                 <Grid.Row centered>
-                    <Grid.Column width={12}>
-                        {
-                            this.state.filmPopuler.map(film =>
-                                <Segment basic size='mini'>
-                                    <LazyLoadImage
-                                        alt={film.title}
-                                        scrollPosition={scrollPosition}
-                                        src={IMAGE_URL + film.resim}
-                                    />
-                                    <div className='circle'>
-                                        <div className='circleItem'>
-                                            <Circle
-                                                animate={true}
-                                                animationDuration="1s"
-                                                responsive={true}
-                                                size="1"
-                                                lineWidth="20"
-                                                progressColor='greenUp'
-                                                progress={film.oyOrt * 10}
-                                                textStyle={{
-                                                    font: 'bold 8rem sans-serif'
-                                                }}
-                                                textColor="#fff"
-                                            />
+                    <Grid.Column width={12} className='scrolling'>
+                            {
+                                this.state.filmPopuler.map(film =>
+                                    <Segment basic size='mini'>
+                                        <LazyLoadImage
+                                            alt={film.title}
+                                            scrollPosition={scrollPosition}
+                                            src={IMAGE_URL + film.resim}
+                                        />
+                                        <div className='circle'>
+                                            <div className='circleItem'>
+                                                <Circle
+                                                    animate={true}
+                                                    animationDuration="1s"
+                                                    responsive={true}
+                                                    size="1"
+                                                    lineWidth="20"
+                                                    progressColor='greenUp'
+                                                    progress={film.oyOrt * 10}
+                                                    textStyle={{
+                                                        font: 'bold 8rem sans-serif'
+                                                    }}
+                                                    textColor="#fff"
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <Dropdown
-                                        onChange={this.handleChange}
-                                        className='ideaIconT'
-                                        trigger={trigger}
-                                        options={options}
-                                        lazyLoad
-                                        icon={null}
-                                        value={this.clickedQuery}>
-                                    </Dropdown>
+                                        <Dropdown
+                                            onChange={this.handleChange}
+                                            className='ideaIconT'
+                                            trigger={trigger}
+                                            options={options}
+                                            lazyLoad
+                                            icon={null}
+                                            value={this.clickedQuery}>
+                                        </Dropdown>
 
-                                    <Card
-                                        href={MOVIE + film.id}
-                                    >
-                                        <Card.Content>
-                                            <Card.Header>{film.baslik}</Card.Header>
-                                            <Card.Meta>{film.cikis}</Card.Meta>
-                                        </Card.Content>
-                                    </Card>
-                                </Segment>
-                            )
-                        }
-                                ))
+                                        <Card
+                                            href={MOVIE + film.id}
+                                        >
+                                            <Card.Content>
+                                                <Card.Header>{film.baslik}</Card.Header>
+                                                <Card.Meta>{film.cikis}</Card.Meta>
+                                            </Card.Content>
+                                        </Card>
+                                    </Segment>
+                                )
                             }
+                        )
+                        }
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
