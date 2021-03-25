@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
-import axios from "axios";
-// eslint-disable-next-line no-unused-vars
 import LazyLoadImage from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
+import {FetchMovies} from '../../actions/apiControl'
 
-const API = 'https://api.themoviedb.org/4/list/1?page=1'
-const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
 const MOVIE = 'https://www.themoviedb.org/movie/'
 const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
 
@@ -31,19 +28,7 @@ class TopCard extends Component{
     state: { filmPopuler: [], loading: boolean };
 
     componentDidMount() {
-        this.setState({loading: true})
-        console.log("mounted")
-        try {
-            const response = axios.get(API + API_KEY).then(
-                response => {
-                    this.setState({filmPopuler : response.data.results, loading:false}, ()=>
-                    console.log(response.data.results))
-                }
-            )
-            console.log(response.data)
-        } catch (error){
-            console.error(error)
-        }
+        this.props.dispatch(FetchMovies(1))
     }
 
     handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
