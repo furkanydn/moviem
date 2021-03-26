@@ -1,13 +1,10 @@
 import React, {Component} from 'react'
-import axios from "axios";
 // eslint-disable-next-line no-unused-vars
 import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
 
-const API = 'https://api.themoviedb.org/4/list/7082660?page=1'
-const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
 const MOVIE = 'https://www.themoviedb.org/movie/'
 const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
 
@@ -41,29 +38,6 @@ class FreePaneOne extends Component{
 
     handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
 
-    constructor(props) {
-        super(props);
-
-        axios.get(API + API_KEY)
-            .then(sonuc => {
-                const filmFree = sonuc.data.results.map(
-                    obje => ({
-                        baslik: obje.title,
-                        ozet: obje.overview,
-                        oyOrt: obje.vote_average,
-                        cikis: obje.release_date,
-                        resim: obje.poster_path,
-                        no: obje.id
-                    })
-                )
-                this.setState({
-                    filmFree
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }
 
     render() {
         const { clickedQuery } = this.state
