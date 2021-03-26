@@ -11,7 +11,7 @@ Projeyi kullanabilmek için [Node](https://nodejs.org/) yüklü olmalıdır.
 git clone https://github.com/furkanydn/moviem.git
 ```
 ```git
-docker pull wasteinsy/moviem:movie
+docker pull wasteinsy/moviem:movie (Yeni yapılan değişiklikler eklenemedi.)
 ```
 Bu bağlantıları kullanarak projeyi indirebilirsiniz.
 
@@ -21,17 +21,21 @@ Proje ayağa kalkınca [http://localhost:3000](http://localhost:3000) bu link ü
 veya docker sizin için bunları yapabilir.
 
 ## Sorunlar
--[react-circle](https://www.npmjs.com/package/react-circle) paketinin bağımlılıkları react'ın 16.2.0 versiyonu üzerinden eşleştirildiği için hata alırsanız eş bağımlılıklarını kendiniz yüklemelisiniz.
+-[react-circle](https://www.npmjs.com/package/react-circle) paketinin bağımlılıkları react'ın 16.2.0 versiyonu üzerinden eşleştirildiği için hata alınıyor bunu ileriki bir zamanda düzelteceğim ve [konvajs](https://github.com/konvajs/react-konva) kullanmayı düşünüyorum.
 
 -[Semantic UI](https://semantic-ui.com/) kullanıldığı için bazı isimlendirmeleri ezdiği için herhangi bir hatada [bu linkten](https://github.com/Semantic-Org/Semantic-UI/issues) açık olan hatalardan araştırabilirsiniz.
 
+-[Keys](https://reactjs.org/docs/lists-and-keys.html#keys) Yeni düzenlemelerle beraber benzersiz bir "anahtar" özelliği zorunlu tutuluyor bu yüzden iki yada üç adet hata konsola düşebilir.
+
+-[Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) Resimler lazyload olarak getiriliyor ancak container hatasından dolayı içerideki componentlerin hiçbiri yüklenmiyor.
+
+-[Scroller-Wrap](https://github.com/bespoyasov/scroller) Yeni yapıda kullanılması planlanan pakettir.
+
 ## Eksiklikler
--[Semantic UI Menu](https://reactjs.org/link/warning-keys) menüsü kullanıldığı için react'ın standartlarına uymadığından dolayı hata alabilirsiniz, yakın zamanda düzeltilebilir.
+-[Semantic UI Card](https://semantic-ui.com/views/card.html) Kart kullanımında doğru yerleşim planı yapılmadığı için konteynırlar eşli olarak çalışıyor.
 
--[Semantic UI](https://semantic-ui.com/) fluid özelliği resime atandığı zaman size özelliği ile birlikte kullanıldığında hata veriyor, ileriki bir tarihte düzenlenebilir.
-
--[React State and Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) 
-Henüz bağlanmamış bir bileşende setState metodu kullandığım için bu işlem yapılmaz uyarısı verebilir, uygulamada bir hata olduğunu gösterebilir. Bunun yerine, doğrudan "this.state" metodu olarak kullanılabilir veya Sınıf bileşeninde istenen duruma sahip bir "state = {}" özelliği tanımlanabilir. İleride bir düzenleme getirilebilir.
+## İleride Düzenlenmesi Planlananlar
+-[Fetching data from API](https://developers.themoviedb.org/4) Api'lerin kullanımının tekrarı söz konusu olduğu için bunları tek componentte toplayıp dışarıda kullanılabilir hale getirilecek.
 
 ## Projede kullanılan teknolojiler
 
@@ -40,5 +44,3 @@ Henüz bağlanmamış bir bileşende setState metodu kullandığım için bu iş
 * [Axios](https://github.com/axios/axios)
 * [Docker](https://www.docker.com/)
 * [API'ler](https://developers.themoviedb.org/4/getting-started)
-
-Docker konusunda fikirlerinden dolayı [Fırat KAYA](https://kayafirat.com/)'ya teşekkür ederim :)
