@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import axios from "axios";
-import Circle from 'react-circle'
-import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
+import {Grid} from "semantic-ui-react";
 import "../../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/7082656?page=1'
@@ -9,28 +8,12 @@ const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
 const MOVIE = 'https://www.themoviedb.org/movie/'
 const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
 
-const trigger = (
-    <Icon name='idea'/>
-)
-const options= [
-    {
-        key: 1,
-        icon:'thumbs up outline',
-        value: 1
-    },
-    {
-        key: 2,
-        icon:'thumbs down outline',
-        value: 2
-    }
-]
 
 export default class FreePaneTwo extends Component{
     state = {
         filmFree: []
     }
 
-    handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
 
     constructor(props) {
         super(props);
@@ -57,7 +40,6 @@ export default class FreePaneTwo extends Component{
     }
 
     render() {
-        const { clickedQuery } = this.state
 
         return (
             <Grid padded>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Grid, Header, Segment, Tab} from 'semantic-ui-react'
+import {Button, Header, Segment, Tab} from 'semantic-ui-react'
 import {SecondPane, TopCard, ThreePane, FourPane} from './index'
 
 const panel = [

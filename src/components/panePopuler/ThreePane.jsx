@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import axios from "axios";
-import Circle from 'react-circle'
-import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
+import {Grid} from "semantic-ui-react";
 import "../../styles/style.scss"
 
 const API = 'https://api.themoviedb.org/4/list/1?page=3'
@@ -9,46 +8,10 @@ const API_KEY = '&api_key=1a6c5679f1a870fdd2b486f96e6bd7ff'
 const MOVIE = 'https://www.themoviedb.org/movie/'
 const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
 
-const responsive = {
-    superLargeDesktop: {
-        breakpoint: { max: 4000, min: 3000 },
-        items: 10,
-    },
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 8,
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 6,
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 2,
-    },
-};
-const trigger = (
-    <Icon name='idea'/>
-)
-const options= [
-    {
-        key: 1,
-        icon:'thumbs up outline',
-        value: 1
-    },
-    {
-        key: 2,
-        icon:'thumbs down outline',
-        value: 2
-    }
-]
-
 export default class ThreePane extends Component{
     state = {
         filmPopuler: []
     }
-
-    handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
 
     constructor(props) {
         super(props);
@@ -75,7 +38,6 @@ export default class ThreePane extends Component{
     }
 
     render() {
-        const { clickedQuery } = this.state
 
         return (
             <Grid padded>

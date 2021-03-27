@@ -1,44 +1,16 @@
-import React, {Component} from 'react'
-import Circle from 'react-circle'
-import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
+import React from 'react'
+import {Grid} from "semantic-ui-react";
 import "../../styles/style.scss"
 
 const MOVIE = 'https://www.themoviedb.org/movie/'
 const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
 
-const trigger = (
-    <Icon name='idea'/>
-)
-const options= [
-    {
-        key: 1,
-        icon:'thumbs up outline',
-        value: 1
-    },
-    {
-        key: 2,
-        icon:'thumbs down outline',
-        value: 2
-    }
-]
-
-const ChangeColor = () => {
-    // eslint-disable-next-line no-unused-vars
-    const [progressColor, setProgressColor] = React.useState();
-
-    return progressColor
-}
-
-class FreePaneOne extends Component{
+class FreePaneOne extends React.Component{
     state = {
         filmFree: [],
     }
 
-    handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
-
-
     render() {
-        const { clickedQuery } = this.state
 
         return (
             <Grid padded>
