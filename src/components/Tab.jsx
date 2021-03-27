@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Header, Segment, Tab} from 'semantic-ui-react'
+import {Button, Grid, Header, Segment, Tab} from 'semantic-ui-react'
 import {SecondPane, TopCard, ThreePane, FourPane} from './index'
 
 const panel = [
@@ -51,10 +51,10 @@ export default class TabPanel extends Component {
     render() {
 
         return (
-            <Tab
-                menu={{secondary: true}}
-                panes={panel}
-                defaultActiveIndex={1}/>
+                <Tab
+                    menu={{secondary: true}}
+                    panes={panel}
+                    defaultActiveIndex={1}/>
         )
     }
 }

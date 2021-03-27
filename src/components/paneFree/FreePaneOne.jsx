@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-// eslint-disable-next-line no-unused-vars
-import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component'
 import Circle from 'react-circle'
 import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
 import "../../styles/style.scss"
@@ -45,54 +43,54 @@ class FreePaneOne extends Component{
         return (
             <Grid padded>
                 <Grid.Row centered>
-                    <Grid.Column width={12}>
-                                {
-                                    this.state.filmFree.map(data =>(
-                                        <Segment basic size='mini'>
-                                            <LazyLoadImage
-                                                alt={data.title}
-                                                src={IMAGE_URL + data.resim}
-                                                scrollPosition={{ x: 0, y: 0 }}
-                                            />
-                                            <div className='circle'>
-                                                <div className='circleItem'>
-                                                    <Circle
-                                                        animate={true}
-                                                        animationDuration="1s"
-                                                        responsive={true}
-                                                        size="1"
-                                                        lineWidth="20"
-                                                        progressColor={ChangeColor}
-                                                        progress={data.oyOrt * 10}
-                                                        textStyle={{
-                                                            font: 'bold 8rem sans-serif'
-                                                        }}
-                                                        textColor="#fff"
-                                                    />
-                                                </div>
-                                            </div>
+                    <Grid.Column className="uicolumn" width={12}>
+                                {/*{*/}
+                                {/*    this.state.filmFree.map(data =>(*/}
+                                {/*        <Segment basic size='mini'>*/}
+                                {/*            <LazyLoadImage*/}
+                                {/*                alt={data.title}*/}
+                                {/*                src={IMAGE_URL + data.resim}*/}
+                                {/*                scrollPosition={{ x: 0, y: 0 }}*/}
+                                {/*            />*/}
+                                {/*            <div className='circle'>*/}
+                                {/*                <div className='circleItem'>*/}
+                                {/*                    <Circle*/}
+                                {/*                        animate={true}*/}
+                                {/*                        animationDuration="1s"*/}
+                                {/*                        responsive={true}*/}
+                                {/*                        size="1"*/}
+                                {/*                        lineWidth="20"*/}
+                                {/*                        progressColor={ChangeColor}*/}
+                                {/*                        progress={data.oyOrt * 10}*/}
+                                {/*                        textStyle={{*/}
+                                {/*                            font: 'bold 8rem sans-serif'*/}
+                                {/*                        }}*/}
+                                {/*                        textColor="#fff"*/}
+                                {/*                    />*/}
+                                {/*                </div>*/}
+                                {/*            </div>*/}
 
-                                            <Dropdown
-                                                onChange={this.handleChange}
-                                                className='ideaIconT'
-                                                trigger={trigger}
-                                                options={options}
-                                                lazyLoad
-                                                icon={null}
-                                                value={clickedQuery}>
-                                            </Dropdown>
+                                {/*            <Dropdown*/}
+                                {/*                onChange={this.handleChange}*/}
+                                {/*                className='ideaIconT'*/}
+                                {/*                trigger={trigger}*/}
+                                {/*                options={options}*/}
+                                {/*                lazyLoad*/}
+                                {/*                icon={null}*/}
+                                {/*                value={clickedQuery}>*/}
+                                {/*            </Dropdown>*/}
 
-                                            <Card
-                                                href={MOVIE + data.id}
-                                            >
-                                                <Card.Content>
-                                                    <Card.Header>{data.baslik}</Card.Header>
-                                                    <Card.Meta>{data.cikis}</Card.Meta>
-                                                </Card.Content>
-                                            </Card>
-                                        </Segment>
-                                    ))
-                                }
+                                {/*            <Card*/}
+                                {/*                href={MOVIE + data.id}*/}
+                                {/*            >*/}
+                                {/*                <Card.Content>*/}
+                                {/*                    <Card.Header>{data.baslik}</Card.Header>*/}
+                                {/*                    <Card.Meta>{data.cikis}</Card.Meta>*/}
+                                {/*                </Card.Content>*/}
+                                {/*            </Card>*/}
+                                {/*        </Segment>*/}
+                                {/*    ))*/}
+                                {/*}*/}
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

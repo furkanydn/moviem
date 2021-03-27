@@ -46,8 +46,6 @@ body {
     background-clip: border-box;
   }
 }
-
-
 .ideaIconT {
   top: 20px;
   right: 16px;
@@ -102,6 +100,58 @@ body {
 .sevenDown {
   background-color: $sevenDown;
 }
-.scrolling {
-  overflow-x: scroll;
+::-webkit-scrollbar {
+  width: 0;
 }
+.grido{
+  padding: 20px 0;
+  display: grid;
+  grid-gap: 20px 0;
+  grid-template-columns: 20px 1fr 20px;
+  align-content: start;
+  overflow-y: hidden;
+}
+.grido > * {
+  grid-column: 2 / -2;
+}
+.grido > .full {
+  grid-column: 1 / -1;
+}
+.scroll-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(20, 200px);
+  grid-template-rows: minmax(250px, 1fr);
+  overflow-x: scroll;
+  scroll-snap-type: x proximity;
+  padding-bottom: 15px;
+  margin-bottom: -5px;
+  &div {
+    list-style: none;
+    padding: 0;
+  }
+}
+.segcion {
+  scroll-snap-align: center;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.imgstyle_bir {
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.imgstyle_iki{
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.imgstyle_uc {
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.vonheader {
+  font-weight: 700;
+  color: #000;
+}
+

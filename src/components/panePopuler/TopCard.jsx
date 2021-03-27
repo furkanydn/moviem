@@ -1,122 +1,79 @@
-import React, {Component, useState, useEffect} from 'react'
-import LazyLoadImage from 'react-lazy-load-image-component'
+import React from 'react'
+import axios from "axios";
 import Circle from 'react-circle'
-import {Card, Dropdown, Grid, Icon, Segment} from "semantic-ui-react";
+import {Grid} from "semantic-ui-react";
+import 'semantic-ui-css/semantic.min.css'
 import "../../styles/style.scss"
-import apiC from "../../actions/apiControl";
 import Req from "../../actions/requests";
+import LazyImage from "../lazyimage";
 
-const MOVIE = 'https://www.themoviedb.org/movie/'
-const IMAGE_URL = 'http://image.tmdb.org/t/p/w185/'
 
-const trigger = (
-    <Icon name='idea'/>
-)
-const options= [
-    {
-        key: 1,
-        icon:'thumbs up outline',
-        value: 1
-    },
-    {
-        key: 2,
-        icon:'thumbs down outline',
-        value: 2
-    }
-]
+const MOVIE_URL= 'https://www.themoviedb.org/movie/'
+const IMAGE_URL= 'http://image.tmdb.org/t/p/w500/'
 
-function GET_MOVIES({fetchURL}){
-    const [movies, setMovies] = useState([])
-
-    useEffect(() => {
-        const request = apiC.get(Req.fetchPopulerOne)
-        setMovies(request.data.results)
-        console.log(request.data.results)
-        return request
-    }, [fetchURL])
-}
-
-class TopCard extends Component{
-    state: { loading: boolean };
-
-    handleChange = ( e, { clickedQuery }) => this.setState({ clickedQuery })
-
+class TopCard extends React.Component{
     constructor(props) {
         super(props);
-
         this.state = {
-            filmPopuler: [],
+            movies: [],
+            isLoaded: false,
         }
     }
 
-    componentDidMount() {
-        const request = apiC.get(Req.fetchPopulerOne)
-        this.state.filmPopuler(request.data.results)
-        console.log(this.state.filmPopuler)
+    fetchAPI = () => {
+        this.setState({isLoaded: true})
+        return axios.get(Req.fetchPopulerOne)
+            .then(response => {
+                console.log(response)
+                this.setState({ movies: response.data.results,isLoaded: true,})
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
     }
 
+    componentDidMount() {
+        this.fetchAPI()
+    }
 
     render() {
-        const { scrollPosition } = this.props;
+        const { isLoaded,movies } = this.state;
 
-        return (
-            <Grid padded>
-                <Grid.Row centered>
-                    <Grid.Column width={12} className='scrolling'>
-                            {
-                                console.log(this.sa)
-                                // this.state.filmPopuler.map(film =>
-                                //     <Segment basic size='mini'>
-                                //         <LazyLoadImage
-                                //             alt={film.title}
-                                //             scrollPosition={scrollPosition}
-                                //             src={IMAGE_URL + film.resim}
-                                //         />
-                                //         <div className='circle'>
-                                //             <div className='circleItem'>
-                                //                 <Circle
-                                //                     animate={true}
-                                //                     animationDuration="1s"
-                                //                     responsive={true}
-                                //                     size="1"
-                                //                     lineWidth="20"
-                                //                     progressColor='greenUp'
-                                //                     progress={film.oyOrt * 10}
-                                //                     textStyle={{
-                                //                         font: 'bold 8rem sans-serif'
-                                //                     }}
-                                //                     textColor="#fff"
-                                //                 />
-                                //             </div>
-                                //         </div>
-                                //
-                                //         <Dropdown
-                                //             onChange={this.handleChange}
-                                //             className='ideaIconT'
-                                //             trigger={trigger}
-                                //             options={options}
-                                //             lazyLoad
-                                //             icon={null}
-                                //             value={this.clickedQuery}>
-                                //         </Dropdown>
-                                //
-                                //         <Card
-                                //             href={MOVIE + film.id}
-                                //         >
-                                //             <Card.Content>
-                                //                 <Card.Header>{film.baslik}</Card.Header>
-                                //                 <Card.Meta>{film.cikis}</Card.Meta>
-                                //             </Card.Content>
-                                //         </Card>
-                                //     </Segment>
-                                // )
-                            }
-                        )
+        if(!isLoaded){
+            return <div>Yukleniyor...</div>
+        } else {
+            return (
+                <Grid>
+                    <div className="grido">
+                        <div className="scroll-container">
+                        {
+                            this.state.movies.map(data =>(
+                                <div className="ui basic segment segcion">
+                                    <div className="card">
+                                        <div className="image">
+                                            <LazyImage
+                                                srcset={IMAGE_URL + data.poster_path}
+                                                src={IMAGE_URL + data.poster_path}
+                                                alt={data.original_title}
+                                                width="200"
+                                                height="300"
+                                                />
+                                        </div>
+                                        <div className="content">
+                                            <div className="header vonheader">{data.title}</div>
+                                        </div>
+                                        <div className="extra content">
+                                            <span className="right floated">{data.release_date}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
                         }
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
-        )
+                        </div>
+                    </div>
+                </Grid>
+            )
+        }
     }
 }
 

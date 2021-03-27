@@ -7,7 +7,7 @@ import {Grid} from "semantic-ui-react";
 class Main extends Component {
     render() {
         return (
-            <Grid>
+            <Grid padded>
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title>Moviem</title>
