@@ -11,7 +11,7 @@ Projeyi kullanabilmek için [Node](https://nodejs.org/) yüklü olmalıdır.
 git clone https://github.com/furkanydn/moviem.git
 ```
 ```git
-docker pull wasteinsy/moviem:movie (Yeni yapılan değişiklikler eklenemedi.)
+docker pull wasteinsy/moviem:moviem olarak düzenlendi.
 ```
 Bu bağlantıları kullanarak projeyi indirebilirsiniz.
 
@@ -21,21 +21,19 @@ Proje ayağa kalkınca [http://localhost:3000](http://localhost:3000) bu link ü
 veya docker sizin için bunları yapabilir.
 
 ## Sorunlar
--[react-circle](https://www.npmjs.com/package/react-circle) paketinin bağımlılıkları react'ın 16.2.0 versiyonu üzerinden eşleştirildiği için hata alınıyor bunu ileriki bir zamanda düzelteceğim ve [konvajs](https://github.com/konvajs/react-konva) kullanmayı düşünüyorum.
+-[Minimal Pie Chart](https://github.com/toomuchdesign/react-minimal-pie-chart/) Y eksenini sıfır alarak X ekseni üzerinden canvası çizmeye başlıyor. İleride canvası muhtemelen kendim çizmeye çalışacağım.
 
--[Semantic UI](https://semantic-ui.com/) kullanıldığı için bazı isimlendirmeleri ezdiği için herhangi bir hatada [bu linkten](https://github.com/Semantic-Org/Semantic-UI/issues) açık olan hatalardan araştırabilirsiniz.
+-[Semantic UI](https://semantic-ui.com/) menu geçişlerinde mapping üzerinden anahtar dağıtmama rağmen küçük bir bug yüzünden konsola hata düşürüyor. Ring UI için araştırmalar devam ediyor.
 
--[Keys](https://reactjs.org/docs/lists-and-keys.html#keys) Yeni düzenlemelerle beraber benzersiz bir "anahtar" özelliği zorunlu tutuluyor bu yüzden iki yada üç adet hata konsola düşebilir.
-
--[Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) Resimler lazyload olarak getiriliyor ancak container hatasından dolayı içerideki componentlerin hiçbiri yüklenmiyor.
-
--[Scroller-Wrap](https://github.com/bespoyasov/scroller) Yeni yapıda kullanılması planlanan pakettir.
+-[Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html) componentDidMount olarak kullandığım ancak istenilen alanda setState kullanmadığım için konsola hata bırakıyor.
 
 ## Eksiklikler
--[Semantic UI Card](https://semantic-ui.com/views/card.html) Kart kullanımında doğru yerleşim planı yapılmadığı için konteynırlar eşli olarak çalışıyor.
+-[Props](https://tr.reactjs.org/docs/components-and-props.html) Nadirde olsa bazen tablar arası geçişlerde 'itemProps is Undefined' hatası alınabiliyor.
+
+-[Handle Icon](https://reactgo.com/react-show-hide-elements/) Thumbs ikonlarını gizlemeyi sonra geri getirmeyi yapamadım. Araştırmalar devam etmektedir.
 
 ## İleride Düzenlenmesi Planlananlar
--[Fetching data from API](https://developers.themoviedb.org/4) Api'lerin kullanımının tekrarı söz konusu olduğu için bunları tek componentte toplayıp dışarıda kullanılabilir hale getirilecek.
+-[Canvas](https://github.com/konvajs/react-konva) Pie Chart yerine gelen verilerle canvas çizilmesini daha mantıklı bir karar olacağını düşünmekteyim.
 
 ## Projede kullanılan teknolojiler
 
