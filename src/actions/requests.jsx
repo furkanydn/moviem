@@ -5,7 +5,7 @@ const requests = {
     fetchPopulerOne: `${API}/list/1?page=1&api_key=${API_KEY}`,
     fetchPopulerTwo: `${API}/list/1?page=2&api_key=${API_KEY}`,
     fetchPopulerThr: `${API}/list/1?page=3&api_key=${API_KEY}`,
-    fetchPopulerFou: `${API}/list/1?page=4&api_key=${API_KEY}`,
+    fetchPopulerFou: `${API}/list/2?page=1&api_key=${API_KEY}`,
     fetchFreeOne: `${API}/list/7082660?page=1&api_key=${API_KEY}`,
     fetchFreeTwo: `${API}/list/7082656?page=1&api_key=${API_KEY}`,
 }

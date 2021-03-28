@@ -1,12 +1,11 @@
 import React from 'react'
 import axios from "axios";
-import {Grid} from "semantic-ui-react";
+import {Dropdown, Grid, Menu} from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css'
 import "../../styles/style.scss"
 import Req from "../../actions/requests";
 import LazyImage from "../lazyimage";
 import {PieChart} from "react-minimal-pie-chart";
-
 
 const MOVIE_URL= 'https://www.themoviedb.org/movie/'
 const IMAGE_URL= 'http://image.tmdb.org/t/p/w500/'
@@ -48,18 +47,37 @@ class TopCard extends React.Component{
                         <div className="scroll-container">
                         {
                             this.state.movies.map(data =>(
-                                <div className="ui basic segment segcion">
+                                <div className="ui basic segment segcion" key={data.id}>
                                     <div className="card">
                                         <div className="image">
-                                            <a  href={MOVIE_URL + data.id}>
-                                                <LazyImage
-                                                    srcset={IMAGE_URL + data.poster_path}
-                                                    src={IMAGE_URL + data.poster_path}
-                                                    alt={data.original_title}
-                                                    width="200"
-                                                    height="300"
-                                                />
+                                            <a href={MOVIE_URL + data.id}>
+                                                <div
+                                                    style={{height: '260px',
+                                                            width: '174px',
+                                                            border:(data.vote_average * 10 > 70 ? '1px solid #21D07A':data.vote_average * 10 > 50 ? '1px solid #D2D531':'1px solid #D93B63')}}>
+                                                    <LazyImage
+                                                        srcset={IMAGE_URL + data.poster_path}
+                                                        src={IMAGE_URL + data.poster_path}
+                                                        alt={data.original_title}
+                                                        width="172"
+                                                        height="258"
+                                                    />
+                                                </div>
                                             </a>
+                                            <div className="moreoption">
+                                                <Menu secondary vertical className="moremenu">
+                                                    <Dropdown
+                                                        className="moredrop"
+                                                        icon="caret square down"
+                                                        lazyLoad
+                                                        onChange={this.handleItemHide}>
+                                                        <Dropdown.Menu>
+                                                            <Dropdown.Item value="1" icon="thumbs up outline"/>
+                                                            <Dropdown.Item value="2" icon="thumbs down outline"/>
+                                                        </Dropdown.Menu>
+                                                    </Dropdown>
+                                                </Menu>
+                                            </div>
                                         </div>
                                         <div className="outchart">
                                             <div className="chart">

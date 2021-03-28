@@ -44,9 +44,6 @@ const panel = [
 ]
 
 export default class TabPanel extends Component {
-    state = { activeIndex: 1 }
-
-    handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
 
     render() {
 
