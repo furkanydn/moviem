@@ -23,7 +23,6 @@ export default class SecondPane extends React.Component{
         this.setState({isLoaded: true})
         return axios.get(Req.fetchPopulerTwo)
             .then(response => {
-                console.log(response)
                 this.setState({ movies: response.data.results,isLoaded: true,})
             })
             .catch((error)=>{

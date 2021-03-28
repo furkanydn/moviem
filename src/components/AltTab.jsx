@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
-import {Button, Header, Segment, Tab} from 'semantic-ui-react'
-import { FreePaneOne, FreePaneTwo} from './index'
+import React from 'react'
+import {Grid, Header, Tab} from 'semantic-ui-react'
+import {FreePaneOne, FreePaneTwo} from './index'
+import "../styles/style.scss"
 
 const panel = [
     {
@@ -10,44 +11,23 @@ const panel = [
             </div>
     },
     {
-        menuItem: (
-            <Segment basic size='mini'>
-                <Button
-                    className='tabButActive'>
-                    <span className='spanned'>Filmler</span>
-                </Button>
-            </Segment>
-        ),
-        render: () => <Tab.Pane attached={false}>
-            <FreePaneOne/>
-        </Tab.Pane>
+        menuItem: 'Filmler',
+        render: () => <Tab.Pane attached={false}><FreePaneOne/></Tab.Pane>
     },
     {
-        menuItem: (
-            <Segment basic size='mini'>
-                <Button
-                    className='tabBut'>
-                    <span className='tabBut'>TV</span>
-                </Button>
-            </Segment>
-        ),
-        render: () => <Tab.Pane attached={false}>
-            <FreePaneTwo/>
-        </Tab.Pane>
-    }
+        menuItem: 'TV',
+        render: () => <Tab.Pane attached={false}><FreePaneTwo/></Tab.Pane>
+    },
 ]
 
-class AltTabPanel extends Component {
-
-    handleTab = (e, { activeItemIndex }) => this.setState({ activeItemIndex })
-
+class AltTabPanel extends React.Component {
     render() {
-
         return (
-            <Tab
-                menu={{secondary: true}}
-                panes={panel}
-                defaultActiveIndex={1}/>
+            <Grid>
+                <Grid.Column className="coltab">
+                    <Tab menu={{ secondary: true }} panes={panel} defaultActiveIndex={1} renderActiveOnly={true} />
+                </Grid.Column>
+            </Grid>
         )
     }
 }

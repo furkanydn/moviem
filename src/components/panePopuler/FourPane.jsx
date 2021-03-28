@@ -22,7 +22,6 @@ export default class FourPane extends React.Component{
         this.setState({isLoaded: true})
         return axios.get(Req.fetchPopulerFou)
             .then(response => {
-                console.log(response)
                 this.setState({ movies: response.data.results,isLoaded: true,})
             })
             .catch((error)=>{

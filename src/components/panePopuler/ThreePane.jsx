@@ -23,7 +23,6 @@ export default class ThreePane extends React.Component{
         this.setState({isLoaded: true})
         return axios.get(Req.fetchPopulerThr)
             .then(response => {
-                console.log(response)
                 this.setState({ movies: response.data.results,isLoaded: true,})
             })
             .catch((error)=>{

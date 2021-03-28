@@ -6,7 +6,7 @@ class Ust extends Component {
     render() {
         return (
             <Grid centered padded>
-                <Grid.Row centered>
+                <Grid.Row>
                     <Segment basic size='mini'>
                         <Header as='h1' color='blue' dividing>Front-End Developer Değerlendirme Ödevi</Header>
                     </Segment>

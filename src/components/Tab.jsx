@@ -1,6 +1,7 @@
-import React, {Component} from 'react'
-import {Button, Header, Segment, Tab} from 'semantic-ui-react'
+import React from 'react'
+import {Grid, Header, Tab} from 'semantic-ui-react'
 import {SecondPane, TopCard, ThreePane, FourPane} from './index'
+import "../styles/style.scss"
 
 const panel = [
     {
@@ -10,48 +11,32 @@ const panel = [
             </div>
     },
     {
-        menuItem: (
-            //Semantic ui indexleme hatası, burada string yerine component kullanınca geri döneceği indexi bulamıyor.
-            <Segment basic size='mini'>
-                <Button
-                    className='tabButAct'>
-                    <span className='spanned'>Yayın Akışı</span>
-                </Button>
-            </Segment>
-        ),
-        render: () => <Tab.Pane attached={false}>
-            <TopCard/>
-        </Tab.Pane>
+        menuItem: 'Yayın Akışı',
+        render: () => <Tab.Pane attached={false}><TopCard/></Tab.Pane>
     },
     {
         menuItem: 'Televizyonda',
-        render: () => <Tab.Pane attached={false}>
-            <SecondPane/>
-        </Tab.Pane>
+        render: () => <Tab.Pane attached={false}><SecondPane/></Tab.Pane>
     },
     {
         menuItem: 'Kiralık',
-        render: () => <Tab.Pane attached={false}>
-            <ThreePane/>
-        </Tab.Pane>
+        render: () => <Tab.Pane attached={false}><ThreePane/></Tab.Pane>
     },
     {
         menuItem: 'Sinemalarda',
-        render: () => <Tab.Pane attached={false}>
-            <FourPane/>
-        </Tab.Pane>
+        render: () => <Tab.Pane attached={false}><FourPane/></Tab.Pane>
     },
 ]
 
-export default class TabPanel extends Component {
+export default class TabPanel extends React.Component {
 
     render() {
-
         return (
-                <Tab
-                    menu={{secondary: true}}
-                    panes={panel}
-                    defaultActiveIndex={1}/>
+            <Grid>
+                <Grid.Column className="coltab">
+                    <Tab menu={{ secondary: true }} panes={panel} defaultActiveIndex={1} renderActiveOnly={true} />
+                </Grid.Column>
+            </Grid>
         )
     }
 }
