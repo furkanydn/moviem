@@ -139,22 +139,25 @@ body {
   border-radius: 10px;
 }
 .imgstyle_bir {
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 5px;
+  border: 1px solid $light-green;
 }
 .imgstyle_iki{
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 5px;
+  border: 1px solid $light-orange;
 }
 .imgstyle_uc {
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 5px;
+  border: 1px solid $light-red;
 }
 .vonheader {
   font-weight: 700;
   color: #000;
 }
 .outchart {
+  position: absolute;
+  left: 2rem;
+  top: 21em;
   width: 38px;
   height: 38px;
   border-radius: 50%;

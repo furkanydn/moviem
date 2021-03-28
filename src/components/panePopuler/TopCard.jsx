@@ -37,13 +37,12 @@ class TopCard extends React.Component{
     }
 
     render() {
-        const { isLoaded,changeChartColor } = this.state;
+        const { isLoaded } = this.state;
 
         if(!isLoaded){
             return <div>Yukleniyor...</div>
         } else {
             return (
-
                 <Grid>
                     <div className="grido">
                         <div className="scroll-container">
@@ -65,21 +64,25 @@ class TopCard extends React.Component{
                                         <div className="outchart">
                                             <div className="chart">
                                                 <PieChart
-                                                    data={[{ value:data.vote_average * 10, color:'#E38627'}]}
+                                                    data={[{
+                                                        value:data.vote_average * 10,
+                                                        color: (data.vote_average * 10 > 70 ? '#21D07A':data.vote_average * 10 > 50 ? '#D2D531':'#D93B63')
+                                                    }]}
                                                     totalValue={100}
                                                     lineWidth={18}
-                                                    label={({ dataEntry }) => data.vote_average*10}
+                                                    label={({dataEntry}) => `${Math.round(data.vote_average *10)} %`}
                                                     labelStyle={{
-                                                        fontSize:'50px',
+                                                        fontSize:'2.5em',
                                                         fontFamily: 'Arial, sans-serif',
                                                         fill: "#fff",
                                                     }}
                                                     labelPosition={40}
                                                     animate
+                                                    rounded
                                                 />
                                             </div>
                                         </div>
-
+                                        <br/>
                                         <div className="content">
                                             <div className="header vonheader">{data.title}</div>
                                         </div>
